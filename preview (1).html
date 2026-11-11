@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMG Miner | User Guide</title>
+<style>
+:root{
+--bg:#07151b;--panel:#10252d;--cyan:#38d9d0;
+--text:#eefafa;--muted:#a8bdc2;--line:#24434b;
+}
+*{box-sizing:border-box}
+body{
+margin:0;background:var(--bg);color:var(--text);
+font-family:Arial,sans-serif;line-height:1.7;
+}
+header{
+padding:22px;text-align:center;background:#0d222a;
+border-bottom:1px solid var(--line);
+}
+header h1{color:var(--cyan);margin:0}
+header p{color:var(--muted)}
+nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:14px}
+nav a{color:var(--cyan);text-decoration:none;font-weight:bold}
+main{max-width:900px;margin:auto;padding:20px}
+section{
+background:var(--panel);border:1px solid var(--line);
+border-radius:15px;padding:22px;margin:18px 0;
+}
+h2{color:var(--cyan);margin-top:0}
+h3{color:#d4f6f2}
+p,li{color:var(--muted)}
+a{color:var(--cyan)}
+.notice{
+background:#091b22;border-left:4px solid var(--cyan);
+padding:13px 16px;border-radius:6px;
+}
+.warning{border-left-color:#e5b85c}
+.step{
+background:#091b22;padding:15px;border-radius:10px;
+margin:12px 0;border:1px solid var(--line);
+}
+.number{color:var(--cyan);font-weight:bold}
+footer{text-align:center;padding:25px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header>
+<h1>OMG Miner User Guide</h1>
+<p>Installation, wallet setup and responsible mining.</p>
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="info.html">About OMG</a>
+<a href="sadaqah.html">Gaza Sadaqah</a>
+<a href="Guide.html">Mining Guide</a>
+</nav>
+
+<main>
+
+<section>
+<h2>Welcome to OMG Miner</h2>
+<p>
+This guide explains the proposed OMG Miner setup process, wallet
+requirements, mining schedule and Gaza Sadaqah agreement.
+</p>
+<div class="notice">
+Only install software from the official OMG release source.
+Never install an unknown mining executable or share your wallet
+recovery phrase.
+</div>
+</section>
+
+<section>
+<h2>Step 1 – Create a Monero Wallet</h2>
+<p>
+OMG is designed around Monero (XMR) mining. You need a compatible
+Monero wallet to receive your mining payouts.
+</p>
+<p>
+Official Monero downloads:
+<br>
+<a href="https://www.getmonero.org/downloads/" target="_blank" rel="noopener">
+https://www.getmonero.org/downloads/
+</a>
+</p>
+<p>
+Download the official wallet from the Monero website and follow its
+instructions to create a wallet.
+</p>
+</section>
+
+<section>
+<h2>Step 2 – Protect Your Wallet</h2>
+<ul>
+<li>Keep your recovery phrase offline and private.</li>
+<li>Never send your seed phrase to OMG or anyone else.</li>
+<li>Never share your private keys or wallet password.</li>
+<li>Use your public receiving address when configuring mining payouts.</li>
+</ul>
+<div class="notice warning">
+OMG should only require your public wallet address for payout
+configuration. Never enter your wallet recovery phrase into mining
+software.
+</div>
+</section>
+
+<section>
+<h2>Step 3 – Configure Your Mining Settings</h2>
+<div class="step">
+<span class="number">A.</span> Open the official OMG Miner application.
+</div>
+<div class="step">
+<span class="number">B.</span> Enter your Monero public receiving address.
+</div>
+<div class="step">
+<span class="number">C.</span> Select an appropriate mining thread count for your hardware.
+</div>
+<div class="step">
+<span class="number">D.</span> Review the pool configuration and any applicable pool fees.
+</div>
+<p>
+The available pool, connection address and dashboard must be supplied
+by the actual configured mining pool. Do not use an unverified pool
+address.
+</p>
+</section>
+
+<section>
+<h2>Step 4 – Understand the Four-Hour Mining Cycle</h2>
+<div class="step">
+<h3>First session: 3 hours</h3>
+<p>Personal mining session for the user.</p>
+</div>
+<div class="step">
+<h3>Second session: 1 hour</h3>
+<p>Gaza Sadaqah mining session, after the required user agreement.</p>
+</div>
+<div class="step">
+<h3>Cycle completion</h3>
+<p>
+After the three-hour personal session and one-hour Gaza session,
+the four-hour cycle ends and mining stops.
+</p>
+</div>
+<div class="notice">
+<strong>New cycle rule:</strong> If you want to mine again, OMG must
+show the Gaza agreement again. You must actively accept it before
+another cycle begins. No automatic restart without consent.
+</div>
+</section>
+
+<section>
+<h2>Step 5 – Reward Allocation</h2>
+<p>The proposed gross mining reward allocation is:</p>
+<ul>
+<li><strong>75%</strong> – User</li>
+<li><strong>20%</strong> – Gaza Sadaqah</li>
+<li><strong>5%</strong> – OMG software and operating costs</li>
+</ul>
+<p>
+These percentages add up to 100%. The Gaza share is not an additional
+deduction on top of the one-hour session. The reward allocation and
+mining schedule are separate parts of the system.
+</p>
+<p>
+Pool fees and network transaction fees, if applicable, must be
+disclosed separately.
+</p>
+</section>
+
+<section>
+<h2>Step 6 – Check Your Mining Balance</h2>
+<p>
+Use the official dashboard of the mining pool configured by OMG to
+check accepted shares, estimated rewards and payout status.
+</p>
+<p>
+Your wallet balance may not update immediately. Mining pools may
+require a minimum payout threshold and confirmations before funds
+appear in your wallet.
+</p>
+<p>
+A verified pool dashboard link will be added when the actual pool
+configuration is finalized.
+</p>
+</section>
+
+<section>
+<h2>Step 7 – Windows Security and Installation</h2>
+<p>
+Windows may display a warning when an application is downloaded
+from an unfamiliar publisher. Some mining programs may also be
+flagged by antivirus products because miners can be abused by malware.
+</p>
+<div class="notice warning">
+Do not disable Microsoft Defender, Smart App Control or other
+security protections just to install OMG. Do not create broad
+antivirus exclusions.
+</div>
+<ul>
+<li>Download only from the official OMG release.</li>
+<li>Check the publisher signature and published checksum when available.</li>
+<li>Verify the source code and release before running the software.</li>
+<li>Investigate antivirus detections rather than automatically ignoring them.</li>
+<li>Do not run software you cannot verify.</li>
+</ul>
+</section>
+
+<section>
+<h2>Important Security Commitments</h2>
+<ul>
+<li>OMG should never request your wallet seed phrase.</li>
+<li>OMG should never request your private keys or wallet password.</li>
+<li>No hidden mining sessions.</li>
+<li>No undisclosed OMG allocation or hidden fees.</li>
+<li>Your hardware belongs to you.</li>
+<li>You are responsible for your electricity costs.</li>
+<li>A new mining cycle requires fresh agreement.</li>
+</ul>
+</section>
+
+<section>
+<h2>Before You Start</h2>
+<p>Make sure you understand:</p>
+<ul>
+<li>The risks and costs of cryptocurrency mining.</li>
+<li>The four-hour mining schedule.</li>
+<li>The Gaza Sadaqah agreement.</li>
+<li>The 75% / 20% / 5% reward allocation.</li>
+<li>Your wallet and software security responsibilities.</li>
+</ul>
+<p>
+Mining rewards are not guaranteed. Actual results depend on hardware,
+electricity costs, pool conditions, network difficulty and other
+factors.
+</p>
+</section>
+
+<section>
+<h2>Thank You for Supporting Responsible Mining</h2>
+<p>
+OMG aims to combine transparent mining, user control and a dedicated
+Sadaqah allocation. Thank you for taking the time to understand
+the process before participating.
+</p>
+</section>
+
+</main>
+
+<footer>
+OMG Miner | Open Mining Gateway<br>
+Responsible mining. Clear agreements. Transparent allocation.
+</footer>
+
+</body>
+</html>
