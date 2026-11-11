@@ -1,6 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+/* Mobile-friendly page navigation */
+@media(max-width:850px){
+  .nav{
+    height:auto;
+    flex-wrap:wrap;
+    padding:10px 0;
+  }
+
+  .links{
+    display:flex;
+    order:3;
+    flex:0 0 100%;
+    width:100%;
+    justify-content:flex-start;
+    gap:24px;
+    overflow-x:auto;
+    white-space:nowrap;
+    padding:12px 4px 8px;
+    font-size:14px;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .links::-webkit-scrollbar{
+    display:none;
+  }
+
+  .links a{
+    flex-shrink:0;
+    padding:5px 2px;
+  }
+}
+
+@media(max-width:560px){
+  .nav{
+    height:auto;
+  }
+
+  .links{
+    gap:22px;
+    font-size:13px;
+  }
+}
+  <nav class="links" aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="Sadaqah.html">Sadaqah</a>
+  <a href="guide.html">Guide</a>
+  </nav>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#031514" />
