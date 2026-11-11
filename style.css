@@ -1,0 +1,22 @@
+.mobile-links {
+  display:none;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  padding:12px 0;
+}
+
+.mobile-links a {
+  color:var(--cyan);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:8px 12px;
+  font-size:13px;
+  font-weight:700;
+}
+
+@media(max-width:850px) {
+  .mobile-links {
+    display:flex;
+  }
+}
