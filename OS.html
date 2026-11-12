@@ -1,0 +1,105 @@
+from pathlib import Path
+
+html = r'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b1a">
+<meta name="description" content="OMG OS 1.0 — professional development roadmap from planning to a tested first release.">
+<title>OMG OS 1.0 | Development Plan</title>
+<style>
+:root{--bg:#071412;--panel:#0d211e;--panel2:#102925;--line:#23443d;--text:#edf7f2;--muted:#a9c0b7;--mint:#70e0b4;--gold:#f2c879;--blue:#91c9ff;--red:#ff9b91;--shadow:0 18px 45px #0005}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#163b32 0,transparent 36%),var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:var(--mint);text-decoration:none}a:hover{text-decoration:underline}.container{width:min(1120px,calc(100% - 36px));margin:auto}
+header{padding:22px 0;border-bottom:1px solid var(--line);background:#071412d9;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.08em}.logo{width:42px;height:42px;border:1px solid #4e9e83;border-radius:13px;display:grid;place-items:center;color:var(--mint);font-weight:900;background:#12352c}.navlinks{display:flex;gap:18px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.hero{padding:76px 0 54px}.eyebrow{color:var(--mint);font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.hero h1{font-size:clamp(2.5rem,7vw,5.2rem);line-height:1.02;letter-spacing:-.055em;margin:14px 0 20px}.hero h1 span{color:var(--mint)}.lead{max-width:760px;color:var(--muted);font-size:1.15rem}.chips{display:flex;gap:9px;flex-wrap:wrap;margin:25px 0}.chip{border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:#d6e9e0;font-size:.82rem;background:#0d211e}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;border-radius:10px;padding:11px 17px;font-weight:750;border:1px solid #4c987e;background:var(--mint);color:#062018}.btn.secondary{background:transparent;color:var(--text);border-color:var(--line)}
+section{padding:36px 0}.section-head{margin-bottom:22px}.section-head h2{font-size:clamp(1.6rem,4vw,2.35rem);letter-spacing:-.03em;margin:0 0 7px}.section-head p{color:var(--muted);margin:0;max-width:780px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:linear-gradient(145deg,#102722,#0b1c19);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}.card h3{margin:5px 0 8px;font-size:1.08rem}.card p,.card li{color:var(--muted);font-size:.94rem}.number{color:var(--mint);font-size:.76rem;font-weight:850;letter-spacing:.12em}.tag{display:inline-block;color:var(--gold);font-size:.74rem;border:1px solid #725c32;border-radius:6px;padding:2px 7px;margin-top:7px}
+.callout{border:1px solid #4c806b;background:#102a22;border-radius:14px;padding:19px 21px;margin:20px 0}.callout strong{color:var(--mint)}.warning{border-color:#725c32;background:#2a2416}.warning strong{color:var(--gold)}
+.timeline{display:grid;gap:13px}.phase{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:20px;background:#0d211e;border:1px solid var(--line);border-radius:15px}.phase-no{color:var(--mint);font-weight:900;font-size:1.1rem}.phase h3{margin:0 0 5px}.phase p{margin:0 0 8px;color:var(--muted)}.phase ul{margin:8px 0 0;padding-left:20px;color:#c5d8d0}.phase li{margin:4px 0}
+table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:12px;background:#0d211e}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mint);font-size:.82rem;text-transform:uppercase;letter-spacing:.06em}td{color:#d4e3dc;font-size:.93rem}td small{color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.checklist{list-style:none;padding:0;margin:0}.checklist li{padding:9px 0;border-bottom:1px solid #203b35;color:#d4e3dc}.checklist li:before{content:"□";color:var(--mint);font-weight:900;margin-right:10px}
+footer{margin-top:45px;border-top:1px solid var(--line);padding:28px 0 45px;color:var(--muted);font-size:.88rem}
+@media(max-width:760px){.nav{align-items:flex-start;flex-direction:column}.navlinks{gap:12px}.hero{padding:52px 0 35px}.grid{grid-template-columns:1fr}.two{grid-template-columns:1fr}.phase{grid-template-columns:1fr;gap:5px}table{display:block;overflow-x:auto;white-space:normal}}
+@media print{body{background:#fff;color:#15231e}.card,.phase,table,.callout{box-shadow:none;background:#fff;color:#15231e;border-color:#bbb}.card p,.phase p,.phase li,td,.section-head p{color:#344b41}.navlinks,.actions{display:none}header{position:static;background:#fff}.hero{padding-top:25px}}
+</style>
+</head>
+<body>
+<header><div class="container nav">
+  <div class="brand"><div class="logo">OMG</div><div>OPEN MINING GATEWAY <span style="color:var(--mint)">/ OS</span></div></div>
+  <nav class="navlinks"><a href="#vision">Vision</a><a href="#architecture">Architecture</a><a href="#roadmap">Roadmap</a><a href="#safety">Safety</a><a href="#release">Release</a></nav>
+</div></header>
+<main class="container">
+<section class="hero" id="vision">
+  <div class="eyebrow">Product development blueprint · Version 1.0 · November 2026</div>
+  <h1>OMG OS <span>1.0</span></h1>
+  <p class="lead">A practical, staged plan to create an OMG-branded smartphone operating system, beginning with an established open-source platform, then adding a distinctive interface, responsible smart-mining controls and a transparent Sadaqah option.</p>
+  <div class="chips"><span class="chip">Mobile-first</span><span class="chip">AOSP foundation</span><span class="chip">ARM64 first</span><span class="chip">Safety-led mining</span><span class="chip">Transparent giving</span></div>
+  <div class="actions"><a class="btn" href="#roadmap">Explore the development roadmap</a><a class="btn secondary" href="#first-steps">Start with no new laptop</a></div>
+</section>
+
+<section>
+ <div class="section-head"><h2>Executive direction</h2><p>Build the software first. Do not begin by designing a new processor, motherboard or phone factory.</p></div>
+ <div class="grid">
+  <article class="card"><div class="number">01 · FOUNDATION</div><h3>Use AOSP as the starting platform</h3><p>Android Open Source Project provides a mature mobile operating-system foundation. OMG will develop its own identity, interface, apps and services on top of it.</p><span class="tag">Recommended approach</span></article>
+  <article class="card"><div class="number">02 · FIRST DEVICE</div><h3>Support one phone first</h3><p>Select one well-documented Android phone with an unlockable bootloader and active development support. Prove the build before expanding to more devices.</p><span class="tag">One device, then expand</span></article>
+  <article class="card"><div class="number">03 · RESPONSIBILITY</div><h3>Make safety and trust essential</h3><p>Mining must be optional, visible and temperature-controlled. Any Sadaqah allocation must be clearly agreed to, recorded and independently verifiable.</p><span class="tag">No hidden activity</span></article>
+ </div>
+ <div class="callout"><strong>Important identity note:</strong> OMG OS 1.0 will be an OMG-branded operating system based on AOSP. It is not a completely new kernel or a wholly independent operating-system codebase in version 1.0. AOSP does not include Google apps or Google Play by default; those require separate licensing and certification.</div>
+</section>
+
+<section id="architecture">
+ <div class="section-head"><h2>01. Product architecture</h2><p>Keep the first release focused. Shared OMG features can be developed once, while device-specific support is handled separately.</p></div>
+ <div class="grid">
+  <article class="card"><h3>Platform layer</h3><p>AOSP source, Linux kernel for the chosen device, device configuration, hardware abstraction layers, vendor firmware and drivers.</p></article>
+  <article class="card"><h3>OMG experience layer</h3><p>OMG boot branding, launcher, wallpapers, setup flow, settings identity, system information and a consistent design language.</p></article>
+  <article class="card"><h3>OMG services layer</h3><p>Smart Mining Engine, optional Sadaqah accounting, user dashboard, update process, diagnostics and privacy controls.</p></article>
+ </div>
+ <div class="callout warning"><strong>Compatibility reality:</strong> There is no universal image that can safely run on every Android phone. Each model may need its own kernel, device tree, drivers, firmware and testing. Some bootloaders cannot be unlocked.</div>
+ <h3 style="margin-top:26px">Initial technology choices</h3>
+ <table><thead><tr><th>Area</th><th>Version 1.0 direction</th><th>Reason</th></tr></thead><tbody>
+ <tr><td>Base platform</td><td>AOSP</td><td>Established mobile foundation and Android app compatibility.</td></tr>
+ <tr><td>First CPU architecture</td><td>ARM64</td><td>Most practical route for a smartphone-first project.</td></tr>
+ <tr><td>System development</td><td>Java/Kotlin, C/C++, shell and build tools as appropriate</td><td>Use the languages and tools required by each AOSP subsystem.</td></tr>
+ <tr><td>Build environment</td><td>Linux workstation with reliable storage and memory</td><td>Full platform builds are resource-intensive; check requirements for the selected AOSP branch.</td></tr>
+ <tr><td>Source management</td><td>Git with documented changes</td><td>Track changes, review code and make releases reproducible.</td></tr>
+ </tbody></table>
+</section>
+
+<section id="roadmap">
+ <div class="section-head"><h2>02. Development roadmap — start to finish</h2><p>Move to the next phase only when the previous phase has a working result and its risks are understood. Timing depends on access to equipment, skills, device support and testing.</p></div>
+ <div class="timeline">
+  <article class="phase"><div class="phase-no">PHASE 0</div><div><h3>Project definition and preparation</h3><p>Agree what OMG OS 1.0 is—and what it is not.</p><ul><li>Write the product requirements and feature priorities.</li><li>Choose AOSP as the base and ARM64 as the first target.</li><li>Define the OMG visual identity and user principles.</li><li>Create a project folder, decision log, risk register and Git repository when a computer is available.</li></ul></div></article>
+  <article class="phase"><div class="phase-no">PHASE 1</div><div><h3>Learn the platform and select a test phone</h3><p>Research before attempting a build.</p><ul><li>Learn basic Linux commands, Git, Android platform structure and build concepts.</li><li>Compare candidate phones for bootloader unlock, kernel sources, device trees and community support.</li><li>Check modem, camera, Wi-Fi, Bluetooth, audio, sensors and fingerprint support.</li><li>Choose one affordable, replaceable test device—not a daily-use phone.</li></ul></div></article>
+  <article class="phase"><div class="phase-no">PHASE 2</div><div><h3>Set up the development workstation</h3><p>Use a stable computer with permission to install tools and keep project files.</p><ul><li>Install a supported Linux distribution and required AOSP build dependencies.</li><li>Check the official requirements for the exact AOSP branch before choosing hardware.</li><li>Prepare sufficient RAM, fast SSD storage, backups and a reliable internet connection.</li><li>Download and sync the selected AOSP source; record the exact branch and revision.</li></ul></div></article>
+  <article class="phase"><div class="phase-no">PHASE 3</div><div><h3>Build and boot the unmodified platform</h3><p>Prove the toolchain and device target before adding OMG features.</p><ul><li>Follow the device maintainer's documented build instructions.</li><li>Build the baseline image and verify checksums and build logs.</li><li>Test first in an emulator where possible, then on the dedicated test phone.</li><li>Document recovery steps and how to restore the original firmware.</li></ul></div></article>
+  <article class="phase"><div class="phase-no">PHASE 4</div><div><h3>Create the OMG OS identity and interface</h3><p>Make the experience recognisably OMG while keeping core Android functions reliable.</p><ul><li>Design boot animation, wallpaper, launcher, icons and setup experience.</li><li>Define a consistent design system: typography, spacing, colours and accessibility.</li><li>Customize appropriate settings screens and system information.</li><li>Test navigation, notifications, permissions, languages and accessibility.</li></ul></div></article>
+  <article class="phase"><div class="phase-no">PHASE 5</div><div><h3>Build OMG system services and update strategy</h3><p>Establish secure foundations before adding mining or financial features.</p><ul><li>Define service boundaries, permissions, logging and failure behaviour.</li><li>Plan secure boot and verified boot compatibility for the chosen device.</li><li>Design signed update packages, rollback/recovery and release signing-key protection.</li><li>Keep private signing keys offline or in appropriately protected systems; never publish them.</li></ul></div></article>
+  <article class="phase"><div class="phase-no">PHASE 6</div><div><h3>Develop the OMG Smart Mining Engine — optional feature</h3><p>Prototype safely and measure real hardware before making performance claims.</p><ul><li>Start with a simulator and a monitoring-only prototype; do not mine continuously at first.</li><li>Read supported thermal, battery, charging and CPU status information using documented interfaces.</li><li>Use conservative thread limits, gradual adjustment and hysteresis to avoid rapid toggling.</li><li>Pause on unsafe temperature, low battery, sensor failure or user request; respect kernel thermal protection.</li><li>Provide clear Eco, Smart and Performance modes, with safe limits that cannot be overridden by the app.</li><li>Measure hashrate, energy use, temperature and battery wear on the exact phone model.</li></ul></div></article>
+  <article class="phase"><div class="phase-no">PHASE 7</div><div><h3>Design the Sadaqah allocation and transparency system</h3><p>Keep charitable giving understandable, voluntary and auditable.</p><ul><li>Explain the proposed allocation, timing, fees, risks and recipient before the user opts in.</li><li>Show gross mining proceeds, network/pool fees, net amount and each allocation separately.</li><li>Maintain transaction references and a public or independently auditable record without exposing personal data.</li><li>Provide a clear opt-out and a way to verify completed transfers.</li><li>Obtain legal, tax, sanctions and charity-compliance advice for the countries and recipients involved.</li></ul></div></article>
+  <article class="phase"><div class="phase-no">PHASE 8</div><div><h3>Security, privacy and reliability testing</h3><p>Test failure cases—not only the happy path.</p><ul><li>Review permissions, data collection, network traffic, app isolation and service access.</li><li>Test overheating, sensor failure, sudden shutdown, low storage and interrupted updates.</li><li>Test calls, mobile data, SMS, emergency functions, GPS, camera, audio and connectivity.</li><li>Run battery, performance, stability and recovery tests over extended periods.</li><li>Arrange independent security review before public distribution.</li></ul></div></article>
+  <article class="phase"><div class="phase-no">PHASE 9</div><div><h3>Private alpha and controlled beta</h3><p>Invite a small group only after core functions pass internal tests.</p><ul><li>Publish known limitations, supported device model and installation warnings.</li><li>Collect bug reports with user consent and remove sensitive information.</li><li>Fix critical bugs before adding new features or supporting more devices.</li><li>Keep a tested recovery image and clear rollback instructions.</li></ul></div></article>
+  <article class="phase"><div class="phase-no">PHASE 10</div><div><h3>OMG OS 1.0 release readiness</h3><p>Release only when the product is supportable, secure and honest about its limits.</p><ul><li>Freeze the feature set, version the source and create reproducible release builds.</li><li>Publish installation instructions, supported-device list, privacy policy and security contact.</li><li>Publish update policy, known issues, recovery instructions and support channels.</li><li>Release to a limited audience first; expand only after real-world stability is demonstrated.</li></ul></div></article>
+  <article class="phase"><div class="phase-no">PHASE 11</div><div><h3>After 1.0: expand carefully</h3><p>Build a sustainable maintenance programme.</p><ul><li>Port to one additional device at a time, with separate validation for each model.</li><li>Maintain security patches and a predictable update schedule.</li><li>Benchmark ARM devices honestly; compare performance per watt, not hashrate alone.</li><li>Consider OEM/ODM partnerships only after the software and user demand are proven.</li></ul></div></article>
+ </div>
+</section>
+
+<section id="safety">
+ <div class="section-head"><h2>03. Non-negotiable safety and trust rules</h2><p>These are product requirements, not optional polish.</p></div>
+ <div class="two">
+  <article class="card"><h3>Device and mining safety</h3><ul><li>Mining is off by default and requires clear user consent.</li><li>No hidden mining, background surprises or misleading earnings claims.</li><li>Thermal limits follow the device manufacturer's specifications.</li><li>On sensor or controller failure, mining stops safely.</li><li>Battery health, charging state and user activity affect operation.</li><li>Hardware/kernel protection always has final authority.</li></ul></article>
+  <article class="card"><h3>Financial and donation transparency</h3><ul><li>No guaranteed income or fixed return promises.</li><li>Disclose pool fees, electricity costs, network fees and volatility.</li><li>Users explicitly approve any Sadaqah allocation.</li><li>Show records of amounts received and transfers made.</li><li>Verify recipient legitimacy and applicable legal requirements.</li><li>Never request wallet seed phrases or private keys.</li></ul></article>
+ </div>
+ <div class="callout warning"><strong>Reality check:</strong> Continuous phone mining may consume more electricity than the value earned, create heat and accelerate battery wear. A phone should never be marketed as a guaranteed income device. Real benchmarks and an independent economic review are required before enabling a public mining feature.</div>
+</section>
+
+<section id="first-steps">
+ <div class="section-head"><h2>04. What to do before you have your own laptop</h2><p>There is useful preparation work that costs nothing and does not depend on borrowing a computer every day.</p></div>
+ <div class="two">
+  <article class="card"><h3>Phone-friendly preparation</h3><ul class="checklist"><li>Keep this roadmap and make notes on questions.</li><li>Learn basic terms: AOSP, bootloader, kernel, device tree and Git.</li><li>Sketch the OMG home screen and settings design.</li><li>Write down the first phone models you may be able to test.</li><li>Define exactly what users should see before enabling mining or Sadaqah.</li><li>Do not buy a phone or laptop until requirements are checked.</li></ul></article>
+  <article class="card"><h3>When you can borrow a computer</h3><ul class="checklist"><li>Confirm the owner permits software installation and large downloads.</li><li>Check RAM, free SSD space, CPU and Linux compatibility.</li><li>Back up important files and keep project files separate.</li><li>Start with Linux and Git learning exercises—not a full AOSP build immediately.</li><li>Use a dedicated test phone only after confirming its bootloader and recovery path.</li><li>Return the laptop in the condition agreed with its owner.</li></ul></article>
+ </div>
+ <div class="callout"><stron
